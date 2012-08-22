@@ -1,0 +1,68 @@
+/* 
+    Document   : desktop.css
+    Created on : 11-ago-2012, 4:19:00
+    Author     : root
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+
+
+.ves-title-panel{
+    margin-left: 0 !important;    
+    padding-left: 155px;
+    padding-top: 60px;
+    height: 35px !important;
+    background: transparent url(http://modx.local/assets/components/ves/mgr/resources/images/logo_ves.png) no-repeat left center !important;
+    font-size: 28px !important;
+    line-height: 38px;
+}
+
+
+
+/*
+ *  GROUP TAB PANEL - SECTION
+ */
+ 
+ .x-grouptabs-panel{
+   background-color: #496F07 !important;
+   border: solid 1px #a7a7a7 !important; 
+   border-radius: 5px !important;
+ }
+
+.x-grouptabs-tab-icon-p1{
+   background: transparent url(http://modx.local/assets/components/ves/mgr/resources/images/icons/ves.icon.1.png) no-repeat 15px 2px  !important;
+}
+.x-grouptabs-tab-icon-p2{
+   background: transparent url(http://modx.local/assets/components/ves/mgr/resources/images/icons/ves.icon.2.png) no-repeat 15px 2px  !important;
+}
+.x-grouptabs-tab-icon-p3{
+   background: transparent url(http://modx.local/assets/components/ves/mgr/resources/images/icons/ves.icon.3.png) no-repeat 15px 2px !important;
+}
+.x-grouptabs-tab-icon-p4{
+   background: transparent url(http://modx.local/assets/components/ves/mgr/resources/images/icons/ves.icon.4.png) no-repeat 15px 2px !important;
+}
+
+.x-grouptabs-main{   
+   background: transparent;
+   padding-top: 70px !important;
+   margin-bottom: 20px !important;
+   margin-top: 10px !important;   
+}
+
+.x-grouptabs-strip-active{  
+   background-color: #fff !important;
+}
+
+
+.x-grouptabs-panel .x-grouptabs-expand {
+   top: 70px !important;
+}

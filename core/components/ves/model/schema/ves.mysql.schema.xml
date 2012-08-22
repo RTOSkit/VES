@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model package="ves" baseClass="xPDOObject" platform="mysql" defaultEngine="MyISAM"  tablePrefix="modx_">
+   <object class="vesGenerators" table="ves_generators" extends="xPDOSimpleObject">      
+       	<field key="name"        dbtype="varchar"  precision="25"    phptype="string"  null="true"  default="" />        
+        <field key="snippetref"  dbtype="varchar"  precision="25"    phptype="string"  null="true"  default="" />        
+    	<field key="settings"    dbtype="text"                       phptype="string"  null="true"  default="" />    
+        <field key="rules"       dbtype="text"                       phptype="string"  null="true"  default="" />    
+        <field key="parameters"  dbtype="text"                       phptype="string"  null="true"  default="" />      
+        
+        <index alias="name" name="name" primary="false" unique="true" type="BTREE">
+            <column key="name" length="" collation="A" null="false" />
+        </index>  
+        
+        <composite alias="Services"     class="vesServices"   local="id"  foreign="agenerator" cardinality="one"  owner="local" />
+    </object>
+    <object class="vesTransports" table="ves_transports" extends="xPDOSimpleObject">      
+        <field key="name"        dbtype="varchar"  precision="25"    phptype="string"  null="true"  default="" />        
+        <field key="snippetref"  dbtype="varchar"  precision="25"    phptype="string"  null="true"  default="" />        
+        <field key="settings"    dbtype="text"                       phptype="string"  null="true"  default="" />    
+        <field key="rules"       dbtype="text"                       phptype="string"  null="true"  default="" />    
+        <field key="parameters"  dbtype="text"                       phptype="string"  null="true"  default="" />      
+        
+        <index alias="name" name="name" primary="false" unique="true" type="BTREE">
+            <column key="name" length="" collation="A" null="false" />
+        </index>      
+        
+        <composite alias="Services"     class="vesServices"   local="id"  foreign="atransport" cardinality="one"  owner="local" />
+    </object>
+    <object class="vesConnections" table="ves_connections" extends="xPDOSimpleObject">      
+        <field key="name"        dbtype="varchar"  precision="25"    phptype="string"  null="true"  default="" />        
+        <field key="snippetref"  dbtype="varchar"  precision="25"    phptype="string"  null="true"  default="" />        
+        <field key="settings"    dbtype="text"                       phptype="string"  null="true"  default="" />    
+        <field key="rules"       dbtype="text"                       phptype="string"  null="true"  default="" />    
+        <field key="parameters"  dbtype="text"                       phptype="string"  null="true"  default="" />      
+        
+        <index alias="name" name="name" primary="false" unique="true" type="BTREE">
+            <column key="name" length="" collation="A" null="false" />
+        </index>  
+        
+        <composite alias="Services"     class="vesServices"   local="id"  foreign="aconnection" cardinality="one"  owner="local" />
+    </object>    
+    <object class="vesServices"    table="ves_services" extends="xPDOSimpleObject">      
+        <field key="name"          dbtype="varchar"  precision="25"    phptype="string"  null="true"  default=""  />    
+        <field key="agenerator"    dbtype="int"      precision="8"     phptype="integer" null="false" default="0"  />
+        <field key="atransport"    dbtype="int"      precision="8"     phptype="integer" null="false" default="0"  />
+        <field key="aconnection"   dbtype="int"      precision="8"     phptype="integer" null="false" default="0"  />
+        <field key="typeaccess"    dbtype="int"      precision="3"     phptype="integer" null="false" default="1" />            
+        <field key="usersaccess"   dbtype="text"                       phptype="string"  null="true"  default=""  />    
+        <field key="clientdomains" dbtype="text"                       phptype="string"  null="true"  default=""  />             
+        <field key="forceresolvip" dbtype="tinyint"  precision="1"     phptype="boolean" null="false" default="0" attributes="unsigned" />  
+        <field key="status"        dbtype="tinyint"  precision="1"     phptype="boolean" null="false" default="1" attributes="unsigned" />  
+        
+        <aggregate alias="Generators"  class="vesGenerators"  local="agenerator"   foreign="id"   cardinality="one"  owner="foreign" />
+        <aggregate alias="Transports"  class="vesTransports"  local="atransport"   foreign="id"   cardinality="one"  owner="foreign" />
+        <aggregate alias="Connections" class="vesConnections" local="aconnection"  foreign="id"   cardinality="one"  owner="foreign" />
+        <aggregate alias="Typeaccess"  class="vesTypeaccess"  local="typeaccess"   foreign="id"   cardinality="one"  owner="foreign" />
+    </object>    
+    <object class="vesAccounts"    table="ves_accounts" extends="xPDOSimpleObject">      
+        <field key="name"          dbtype="varchar"  precision="25"    phptype="string"  null="true"  default=""  />
+        <field key="identity"      dbtype="varchar"  precision="15"    phptype="string"  null="true"  default=""  />
+        <field key="typeaccount"   dbtype="int"      precision="3"     phptype="integer" null="false" default="1" />            
+        <field key="settings"      dbtype="text"                       phptype="string"  null="true"  default=""  />    
+        <field key="rules"         dbtype="text"                       phptype="string"  null="true"  default=""  />    
+        <field key="parameters"    dbtype="text"                       phptype="string"  null="true"  default=""  />                    
+        
+    </object>       
+    
+    <object class="vesProfiles"    table="ves_profiles" extends="xPDOSimpleObject">      
+        <field key="name"          dbtype="varchar"  precision="25"    phptype="string"  null="true"  default=""  />
+        <field key="identity"      dbtype="varchar"  precision="15"    phptype="string"  null="true"  default=""  />
+        <field key="typeaccess"    dbtype="int"      precision="3"     phptype="integer" null="false" default="1" />            
+        <field key="settings"      dbtype="text"                       phptype="string"  null="true"  default=""  />    
+        <field key="rules"         dbtype="text"                       phptype="string"  null="true"  default=""  />    
+        <field key="parameters"    dbtype="text"                       phptype="string"  null="true"  default=""  />                 
+        
+        
+    </object> 
+    
+    <object class="vesTypeaccess"    table="ves_typeaccess" extends="xPDOSimpleObject">      
+        <field key="name"          dbtype="varchar"  precision="25"    phptype="string"  null="true"  default="" />        
+        
+        <composite alias="Services"     class="vesServices"   local="id"  foreign="typeaccess" cardinality="one"  owner="local" />
+    </object>      
+    
+</model>
