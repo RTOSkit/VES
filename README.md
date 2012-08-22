@@ -1,4 +1,5 @@
-Vectors Engine Server
-===
+## Vectors Engine Server
+### MODx Revolution - add-on
 
-MODx Revolution - add-on
+
+> ongoing development
